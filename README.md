@@ -1,3 +1,155 @@
+<div>
+  <h1 align="center">A Todo List App with React 🧑‍💻</h1>
+  <h2>No CSS</h2>
+<h2>Goals</h2>
+  <ul>
+  <li>
+  Using entirely class based components.
+  </li>
+  <li>
+  To Do List application of full (C.R.U.D) to do list
+  </li>
+  <li>
+  No class based components.
+    </li>
+     <li>
+  Looks best on a small screen size (responsive).
+    </li>
+    
+   </ul>
+
+  <p>
+    Screenshot:
+  </p>
+
+  <a href="">
+    <img
+      alt="TodoList React"
+      src="screenshot.jpg"
+    />
+  </a>
+</div>
+
+<hr />
+
+## Requirements
+- NPM
+- React
+- uuid
+
+## Main Components
+- TodoList
+- Todo
+
+
+## TodoList Component
+This is the main component which renders each Tasks and also contains all important functions:
+
+```javascript
+AddTodo()
+EditTodo()
+RemoveTodo()
+toggleIsDone()
+```
+
+- TodoList - Constructor:
+```javascript
+      constructor(props){
+        super(props)
+        this.state={
+        todoList:[{id:uuidv4(),task:"Do the dishes",isDone:false},
+          {id:uuidv4(),task:"Do the ironing",isDone:false}]
+        }
+
+        this.AddTodo = this.AddTodo.bind(this)
+        this.RemoveTodo = this.RemoveTodo.bind(this)
+        this.EditTodo = this.EditTodo.bind(this)
+        this.toggleIsDone = this.toggleIsDone.bind(this)
+    } 
+```
+
+- AddTodo 
+A very simple way to add an object to array
+
+```javascript
+   AddTodo(item){
+        this.setState({
+            todoList:[...this.state.todoList,item]  })
+```
+- EditTodo
+Creating a new list and replace with the current list:
+
+```javascript
+  const newList = this.state.todoList.map(todo=>{
+  
+      if (todo.id===id){
+      return {...todo,task:value}
+      }
+      return todo
+      })
+      
+      this.setState({todoList:newList})
+     
+      } 
+```
+
+- RemoveTodo
+A very simple method to filter list 
+
+```javascript
+RemoveTodo(id){
+
+this.setState({ 
+    todoList:this.state.todoList.filter(t=>t.id!==id)
+})
+
+```
+
+- toggleIsDone
+We can create new list, map our list and toggle state(isDone)
+
+```javascript
+toggleIsDone(id){
+    const newList = this.state.todoList.map(todo=>{
+  
+        if (todo.id===id){
+        return {...todo,isDone:!todo.isDone}
+        }
+        return todo
+        })
+        
+        this.setState({todoList:newList})
+}
+```
+## Todo Component
+It renders one task and also have a Form for edit task which is invisible and will show by state (isEditMode).
+Handle functions are here but main functions passed from TodoList by props
+
+```javascript
+class Todo extends Component{
+
+    constructor(props){
+    super(props)
+    this.state={
+    isEditMode:false,
+    task:this.props.task
+}
+```
+
+### DISCLAIMER: THIS IS NOT A REACT.JS BEGGINNERS GUIDE/TUTORIAL
+
+
+In the project directory, you can run bellow command to install all dependencies:
+
+### `npm i`
+
+
+To run this app:
+
+### `npm run dev`
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
