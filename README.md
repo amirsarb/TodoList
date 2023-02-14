@@ -9,9 +9,6 @@
   <li>
   To Do List application of full (C.R.U.D) to do list
   </li>
-  <li>
-  No class based components.
-    </li>
      <li>
   Looks best on a small screen size (responsive).
     </li>
