@@ -133,20 +133,6 @@ class Todo extends Component{
 }
 ```
 
-### DISCLAIMER: THIS IS NOT A REACT.JS BEGGINNERS GUIDE/TUTORIAL
-
-
-In the project directory, you can run bellow command to install all dependencies:
-
-### `npm i`
-
-
-To run this app:
-
-### `npm run dev`
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
